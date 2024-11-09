@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 
 data class CreateOrderRequest(
     val userId: String,
+    val email: String,
     val items: List<OrderItemDTO>
 )
 
@@ -31,4 +32,8 @@ data class OrderItemResponse(
     val productId: String,
     val quantity: Int,
     val price: Double
+)
+
+data class PaymentRequest(
+    val accountNumber: String
 )

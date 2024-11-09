@@ -18,6 +18,7 @@ data class Order(
 
     @Enumerated(EnumType.STRING)
     var status: OrderStatus = OrderStatus.CREATED,
+    var email: String,
 
     val createdAt: LocalDateTime = LocalDateTime.now(),
     var updatedAt: LocalDateTime = LocalDateTime.now()

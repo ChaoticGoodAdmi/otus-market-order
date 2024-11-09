@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import ru.ushakov.order.controller.dto.CreateOrderRequest
 import ru.ushakov.order.controller.dto.OrderResponse
+import ru.ushakov.order.controller.dto.PaymentRequest
 import ru.ushakov.order.controller.dto.UpdateOrderStatusRequest
 import ru.ushakov.order.service.OrderService
 
@@ -38,5 +39,10 @@ class OrderController(
     @GetMapping("/users/{userId}")
     fun getUserOrders(@PathVariable userId: String): List<OrderResponse> {
         return orderService.getUserOrders(userId)
+    }
+
+    @PostMapping("/{orderId}")
+    fun payForOrder(@PathVariable orderId: Long, @RequestBody paymentRequest: PaymentRequest) {
+        orderService.payForOrder(orderId, paymentRequest.accountNumber);
     }
 }
