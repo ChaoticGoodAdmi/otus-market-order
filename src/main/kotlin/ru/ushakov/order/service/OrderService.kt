@@ -100,7 +100,7 @@ class OrderService(
     }
 
     private fun calculatePrice(productId: String): Double {
-        return Random.nextDouble(1.0, 100.0)
+        return 100.0
     }
 
     private fun Order.toOrderResponse(): OrderResponse {
